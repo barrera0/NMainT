@@ -7,7 +7,7 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
         <title><ui:insert name="title">Default Title</ui:insert></title>
-        
+
         <h:outputStylesheet library="css" name="bootstrap.css"/>
         <h:outputStylesheet library="css" name="fonts.css"/>
         <h:outputStylesheet library="css" name="bootstrap-table.css"/>
@@ -22,14 +22,14 @@
             <div class="row display-table-row">
                 <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
                     <div class="logo">
-                        <a href="../PAGINA%20COORDINADOR/coordinador.html"><img src="resources/img/NMAINT.png" alt="merkery_logo" class="hidden-xs hidden-sm" />
-                            <img src="resources/img/NMAINT.png" class="visible-xs visible-sm circle-logo"/>
+                        <a href="../PAGINA%20COORDINADOR/coordinador.html"><img src="/NMainT/resources/img/NMAINT.png" alt="merkery_logo" class="hidden-xs hidden-sm" />
+                            <img src="/NMainT/resources/img/NMAINT.png" class="visible-xs visible-sm circle-logo"/>
                         </a>
                     </div>
                     <div class="navi">
                         <ul>
                             <li><a href="../PAGINA%20COORDINADOR/coordinador.html"><i class="fa fa-home active" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Inicio</span></a></li>
-                            <li class="active"><a href="../PAGINA%20EQUIPO/Equipo.html" ><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Equipos</span></a></li>
+                            <li class="active"><a href="/NMainT/faces/crudjsf/equipos/List.xhtml" ><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Equipos</span></a></li>
 
                             <li>
                                 <a href="javascript:;" data-toggle="collapse" data-target="#demo" class="" aria-expanded="true">
@@ -37,15 +37,15 @@
                                 </a>
                                 <ul id="demo" class="collapse in" aria-expanded="true">
                                     <li>
-                                        <a href="../PAGINA%20TECNICO/tecnico.html">Mantenimientos</a>
+                                        <a href="/NMainT/faces/crudjsf/mantenimientos/List.xhtml">Mantenimientos</a>
                                     </li>
                                     <li>
-                                        <a href="../PAGINA%20TECNICO/PAGINA%20ORDEN%20TRABAJO/ordenTrabajo.html">orden de trabajos</a>
+                                        <a href="/NMainT/faces/crudjsf/ordenesdetrabajo/List.xhtml">orden de trabajos</a>
                                     </li>
                                 </ul>
                             </li>
 
-                            <li><a href="../PAGINA%20USUARIOS/usuarios.html" ><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Usuarios</span></a></li>
+                            <li><a href="/NMainT/faces/crudjsf/usuarios/List.xhtml" ><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Usuarios</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                                         </a>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="resources/img/Monica.jpg" alt="user" />
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/NMainT/resources/img/Monica.jpg" alt="user" />
                                             <b class="caret"></b></a>
                                         <ul class="dropdown-menu">
                                             <li>
@@ -105,7 +105,10 @@
                 </div>
 
                 <div class="container">
-                    <ui:insert name="body">Default Body</ui:insert>
+                    <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
+                        
+                        <ui:insert name="body">Default Body</ui:insert>
+                    </div>
                 </div>
 
                 <div class="container">
@@ -127,7 +130,7 @@
                 </div>
             </div>
         </div>
-       
+
         <script src="resources/js/jquery-1.12.1.min.js" type="text/javascript"></script>
         <script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="resources/js/bootstrap-table.js" type="text/javascript"></script>
@@ -135,7 +138,7 @@
 
         <h:outputScript library="js" name="jquery.validate.min.js"/>
         <h:outputScript library="js" name="validarEquipo.js"/>
-        
+
         <script src="resources/js/sweetalert.min.js" type="text/javascript"></script>
 
     </body>

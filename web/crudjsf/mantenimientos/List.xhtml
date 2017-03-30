@@ -19,7 +19,7 @@
                     <h:outputText value="#{mantenimientosController.pagination.pageFirstItem + 1}..#{mantenimientosController.pagination.pageLastItem + 1}/#{mantenimientosController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{mantenimientosController.previous}" value="#{bundle.Previous} #{mantenimientosController.pagination.pageSize}" rendered="#{mantenimientosController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{mantenimientosController.next}" value="#{bundle.Next} #{mantenimientosController.pagination.pageSize}" rendered="#{mantenimientosController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{mantenimientosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:dataTable value="#{mantenimientosController.items}" var="item" class="table table-bordered">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListMantenimientosTitle_idMtto}"/>
@@ -60,11 +60,11 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{mantenimientosController.prepareView}" value="#{bundle.ListMantenimientosViewLink}"/>
+                            <h:commandLink action="#{mantenimientosController.prepareView}" class="btn btn-primary" value="#{bundle.ListMantenimientosViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{mantenimientosController.prepareEdit}" value="#{bundle.ListMantenimientosEditLink}"/>
+                            <h:commandLink action="#{mantenimientosController.prepareEdit}" class="btn btn-warning" value="#{bundle.ListMantenimientosEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{mantenimientosController.destroy}" value="#{bundle.ListMantenimientosDestroyLink}"/>
+                            <h:commandLink action="#{mantenimientosController.destroy}" class="btn btn-danger" value="#{bundle.ListMantenimientosDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>

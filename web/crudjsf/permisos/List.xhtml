@@ -19,7 +19,7 @@
                     <h:outputText value="#{permisosController.pagination.pageFirstItem + 1}..#{permisosController.pagination.pageLastItem + 1}/#{permisosController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{permisosController.previous}" value="#{bundle.Previous} #{permisosController.pagination.pageSize}" rendered="#{permisosController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{permisosController.next}" value="#{bundle.Next} #{permisosController.pagination.pageSize}" rendered="#{permisosController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{permisosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:dataTable value="#{permisosController.items}" var="item" class="table table-bordered">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListPermisosTitle_idpermiso}"/>
@@ -42,11 +42,11 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{permisosController.prepareView}" value="#{bundle.ListPermisosViewLink}"/>
+                            <h:commandLink action="#{permisosController.prepareView}" class="btn btn-primary" value="#{bundle.ListPermisosViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{permisosController.prepareEdit}" value="#{bundle.ListPermisosEditLink}"/>
+                            <h:commandLink action="#{permisosController.prepareEdit}" class="btn btn-warning" value="#{bundle.ListPermisosEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{permisosController.destroy}" value="#{bundle.ListPermisosDestroyLink}"/>
+                            <h:commandLink action="#{permisosController.destroy}" class="btn btn-danger" value="#{bundle.ListPermisosDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>

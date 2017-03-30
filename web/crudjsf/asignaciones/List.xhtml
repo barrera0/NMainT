@@ -19,7 +19,7 @@
                     <h:outputText value="#{asignacionesController.pagination.pageFirstItem + 1}..#{asignacionesController.pagination.pageLastItem + 1}/#{asignacionesController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{asignacionesController.previous}" value="#{bundle.Previous} #{asignacionesController.pagination.pageSize}" rendered="#{asignacionesController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{asignacionesController.next}" value="#{bundle.Next} #{asignacionesController.pagination.pageSize}" rendered="#{asignacionesController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{asignacionesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:dataTable value="#{asignacionesController.items}" var="item" class="table table-bordered">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListAsignacionesTitle_idcronograma}"/>
@@ -92,11 +92,11 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{asignacionesController.prepareView}" value="#{bundle.ListAsignacionesViewLink}"/>
+                            <h:commandLink action="#{asignacionesController.prepareView}" class="btn btn-primary" value="#{bundle.ListAsignacionesViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{asignacionesController.prepareEdit}" value="#{bundle.ListAsignacionesEditLink}"/>
+                            <h:commandLink action="#{asignacionesController.prepareEdit}" class="btn btn-warning" value="#{bundle.ListAsignacionesEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{asignacionesController.destroy}" value="#{bundle.ListAsignacionesDestroyLink}"/>
+                            <h:commandLink action="#{asignacionesController.destroy}" class="btn btn-danger" value="#{bundle.ListAsignacionesDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>

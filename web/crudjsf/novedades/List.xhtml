@@ -19,7 +19,7 @@
                     <h:outputText value="#{novedadesController.pagination.pageFirstItem + 1}..#{novedadesController.pagination.pageLastItem + 1}/#{novedadesController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{novedadesController.previous}" value="#{bundle.Previous} #{novedadesController.pagination.pageSize}" rendered="#{novedadesController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{novedadesController.next}" value="#{bundle.Next} #{novedadesController.pagination.pageSize}" rendered="#{novedadesController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{novedadesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:dataTable value="#{novedadesController.items}" var="item" class="table table-bordered">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListNovedadesTitle_idNovedad}"/>
@@ -50,11 +50,11 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{novedadesController.prepareView}" value="#{bundle.ListNovedadesViewLink}"/>
+                            <h:commandLink action="#{novedadesController.prepareView}" class="btn btn-primary" value="#{bundle.ListNovedadesViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{novedadesController.prepareEdit}" value="#{bundle.ListNovedadesEditLink}"/>
+                            <h:commandLink action="#{novedadesController.prepareEdit}" class="btn btn-warning" value="#{bundle.ListNovedadesEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{novedadesController.destroy}" value="#{bundle.ListNovedadesDestroyLink}"/>
+                            <h:commandLink action="#{novedadesController.destroy}" class="btn btn-danger" value="#{bundle.ListNovedadesDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>

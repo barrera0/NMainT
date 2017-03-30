@@ -19,7 +19,7 @@
                     <h:outputText value="#{detallemttosController.pagination.pageFirstItem + 1}..#{detallemttosController.pagination.pageLastItem + 1}/#{detallemttosController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{detallemttosController.previous}" value="#{bundle.Previous} #{detallemttosController.pagination.pageSize}" rendered="#{detallemttosController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{detallemttosController.next}" value="#{bundle.Next} #{detallemttosController.pagination.pageSize}" rendered="#{detallemttosController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{detallemttosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:dataTable value="#{detallemttosController.items}" var="item" class="table table-bordered">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListDetallemttosTitle_estadoEquipo}"/>
@@ -50,11 +50,11 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{detallemttosController.prepareView}" value="#{bundle.ListDetallemttosViewLink}"/>
+                            <h:commandLink action="#{detallemttosController.prepareView}" class="btn btn-primary" value="#{bundle.ListDetallemttosViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{detallemttosController.prepareEdit}" value="#{bundle.ListDetallemttosEditLink}"/>
+                            <h:commandLink action="#{detallemttosController.prepareEdit}" class="btn btn-warning" value="#{bundle.ListDetallemttosEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{detallemttosController.destroy}" value="#{bundle.ListDetallemttosDestroyLink}"/>
+                            <h:commandLink action="#{detallemttosController.destroy}" class="btn btn-danger" value="#{bundle.ListDetallemttosDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>

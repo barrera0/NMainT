@@ -19,7 +19,7 @@
                     <h:outputText value="#{usuariosController.pagination.pageFirstItem + 1}..#{usuariosController.pagination.pageLastItem + 1}/#{usuariosController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{usuariosController.previous}" value="#{bundle.Previous} #{usuariosController.pagination.pageSize}" rendered="#{usuariosController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{usuariosController.next}" value="#{bundle.Next} #{usuariosController.pagination.pageSize}" rendered="#{usuariosController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{usuariosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:dataTable value="#{usuariosController.items}" var="item" class="table table-bordered">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUsuariosTitle_idUsuario}"/>
@@ -72,11 +72,11 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{usuariosController.prepareView}" value="#{bundle.ListUsuariosViewLink}"/>
+                            <h:commandLink action="#{usuariosController.prepareView}" class="btn btn-primary" value="#{bundle.ListUsuariosViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{usuariosController.prepareEdit}" value="#{bundle.ListUsuariosEditLink}"/>
+                            <h:commandLink action="#{usuariosController.prepareEdit}" class="btn btn-warning" value="#{bundle.ListUsuariosEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{usuariosController.destroy}" value="#{bundle.ListUsuariosDestroyLink}"/>
+                            <h:commandLink action="#{usuariosController.destroy}" class="btn btn-danger" value="#{bundle.ListUsuariosDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
