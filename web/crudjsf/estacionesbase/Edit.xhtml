@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditEstacionesbaseTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditEstacionesbaseLabel_idestacionBase}" for="idestacionBase" />
+                    <h:inputText id="idestacionBase" value="#{estacionesbaseController.selected.idestacionBase}" title="#{bundle.EditEstacionesbaseTitle_idestacionBase}" required="true" requiredMessage="#{bundle.EditEstacionesbaseRequiredMessage_idestacionBase}"/>
+                    <h:outputLabel value="#{bundle.EditEstacionesbaseLabel_nombreEB}" for="nombreEB" />
+                    <h:inputText id="nombreEB" value="#{estacionesbaseController.selected.nombreEB}" title="#{bundle.EditEstacionesbaseTitle_nombreEB}" required="true" requiredMessage="#{bundle.EditEstacionesbaseRequiredMessage_nombreEB}"/>
+                    <h:outputLabel value="#{bundle.EditEstacionesbaseLabel_ciudad}" for="ciudad" />
+                    <h:inputText id="ciudad" value="#{estacionesbaseController.selected.ciudad}" title="#{bundle.EditEstacionesbaseTitle_ciudad}" required="true" requiredMessage="#{bundle.EditEstacionesbaseRequiredMessage_ciudad}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{estacionesbaseController.update}" value="#{bundle.EditEstacionesbaseSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditEstacionesbaseViewLink}"/>
+                <br />
+                <h:commandLink action="#{estacionesbaseController.prepareList}" value="#{bundle.EditEstacionesbaseShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditEstacionesbaseIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

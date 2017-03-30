@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditEquiposTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditEquiposLabel_idEquipo}" for="idEquipo" />
+                    <h:inputText id="idEquipo" value="#{equiposController.selected.idEquipo}" title="#{bundle.EditEquiposTitle_idEquipo}" required="true" requiredMessage="#{bundle.EditEquiposRequiredMessage_idEquipo}"/>
+                    <h:outputLabel value="#{bundle.EditEquiposLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{equiposController.selected.descripcion}" title="#{bundle.EditEquiposTitle_descripcion}" required="true" requiredMessage="#{bundle.EditEquiposRequiredMessage_descripcion}"/>
+                    <h:outputLabel value="#{bundle.EditEquiposLabel_marca}" for="marca" />
+                    <h:inputText id="marca" value="#{equiposController.selected.marca}" title="#{bundle.EditEquiposTitle_marca}" required="true" requiredMessage="#{bundle.EditEquiposRequiredMessage_marca}"/>
+                    <h:outputLabel value="#{bundle.EditEquiposLabel_serie}" for="serie" />
+                    <h:inputText id="serie" value="#{equiposController.selected.serie}" title="#{bundle.EditEquiposTitle_serie}" required="true" requiredMessage="#{bundle.EditEquiposRequiredMessage_serie}"/>
+                    <h:outputLabel value="#{bundle.EditEquiposLabel_estadoEquipo}" for="estadoEquipo" />
+                    <h:inputText id="estadoEquipo" value="#{equiposController.selected.estadoEquipo}" title="#{bundle.EditEquiposTitle_estadoEquipo}" required="true" requiredMessage="#{bundle.EditEquiposRequiredMessage_estadoEquipo}"/>
+                    <h:outputLabel value="#{bundle.EditEquiposLabel_idEstacionBase}" for="idEstacionBase" />
+                    <h:selectOneMenu id="idEstacionBase" value="#{equiposController.selected.idEstacionBase}" title="#{bundle.EditEquiposTitle_idEstacionBase}" required="true" requiredMessage="#{bundle.EditEquiposRequiredMessage_idEstacionBase}">
+                        <f:selectItems value="#{estacionesbaseController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{equiposController.update}" value="#{bundle.EditEquiposSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditEquiposViewLink}"/>
+                <br />
+                <h:commandLink action="#{equiposController.prepareList}" value="#{bundle.EditEquiposShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditEquiposIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

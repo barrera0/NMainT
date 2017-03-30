@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListEquiposTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListEquiposEmpty}" rendered="#{equiposController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{equiposController.items.rowCount > 0}">
+                    <h:outputText value="#{equiposController.pagination.pageFirstItem + 1}..#{equiposController.pagination.pageLastItem + 1}/#{equiposController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{equiposController.previous}" value="#{bundle.Previous} #{equiposController.pagination.pageSize}" rendered="#{equiposController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{equiposController.next}" value="#{bundle.Next} #{equiposController.pagination.pageSize}" rendered="#{equiposController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{equiposController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEquiposTitle_idEquipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idEquipo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEquiposTitle_descripcion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descripcion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEquiposTitle_marca}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.marca}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEquiposTitle_serie}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.serie}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEquiposTitle_estadoEquipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estadoEquipo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEquiposTitle_idEstacionBase}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idEstacionBase}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{equiposController.prepareView}" value="#{bundle.ListEquiposViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{equiposController.prepareEdit}" value="#{bundle.ListEquiposEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{equiposController.destroy}" value="#{bundle.ListEquiposDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{equiposController.prepareCreate}" value="#{bundle.ListEquiposCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListEquiposIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

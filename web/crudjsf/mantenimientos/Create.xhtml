@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateMantenimientosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateMantenimientosLabel_idMtto}" for="idMtto" />
+                    <h:inputText class="form-control" id="idMtto" value="#{mantenimientosController.selected.idMtto}" title="#{bundle.CreateMantenimientosTitle_idMtto}" required="true" requiredMessage="#{bundle.CreateMantenimientosRequiredMessage_idMtto}"/>
+                    <h:outputLabel value="#{bundle.CreateMantenimientosLabel_tipoMtto}" for="tipoMtto" />
+                    <h:inputText class="form-control" id="tipoMtto" value="#{mantenimientosController.selected.tipoMtto}" title="#{bundle.CreateMantenimientosTitle_tipoMtto}" required="true" requiredMessage="#{bundle.CreateMantenimientosRequiredMessage_tipoMtto}"/>
+                    <h:outputLabel value="#{bundle.CreateMantenimientosLabel_estadoMtto}" for="estadoMtto" />
+                    <h:inputText class="form-control" id="estadoMtto" value="#{mantenimientosController.selected.estadoMtto}" title="#{bundle.CreateMantenimientosTitle_estadoMtto}" required="true" requiredMessage="#{bundle.CreateMantenimientosRequiredMessage_estadoMtto}"/>
+                    <h:outputLabel value="#{bundle.CreateMantenimientosLabel_novedad}" for="novedad" />
+                    <h:inputText class="form-control" id="novedad" value="#{mantenimientosController.selected.novedad}" title="#{bundle.CreateMantenimientosTitle_novedad}" />
+                    <h:outputLabel value="#{bundle.CreateMantenimientosLabel_idAsignacion}" for="idAsignacion" />
+                    <h:selectOneMenu class="form-control" id="idAsignacion" value="#{mantenimientosController.selected.idAsignacion}" title="#{bundle.CreateMantenimientosTitle_idAsignacion}" required="true" requiredMessage="#{bundle.CreateMantenimientosRequiredMessage_idAsignacion}">
+                        <f:selectItems value="#{asignacionesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateMantenimientosLabel_idOT}" for="idOT" />
+                    <h:selectOneMenu class="form-control" id="idOT" value="#{mantenimientosController.selected.idOT}" title="#{bundle.CreateMantenimientosTitle_idOT}" required="true" requiredMessage="#{bundle.CreateMantenimientosRequiredMessage_idOT}">
+                        <f:selectItems value="#{ordenesdetrabajoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{mantenimientosController.create}" value="#{bundle.CreateMantenimientosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{mantenimientosController.prepareList}" value="#{bundle.CreateMantenimientosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateMantenimientosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

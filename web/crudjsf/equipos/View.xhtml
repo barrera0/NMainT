@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewEquiposTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewEquiposLabel_idEquipo}"/>
+                    <h:outputText value="#{equiposController.selected.idEquipo}" title="#{bundle.ViewEquiposTitle_idEquipo}"/>
+                    <h:outputText value="#{bundle.ViewEquiposLabel_descripcion}"/>
+                    <h:outputText value="#{equiposController.selected.descripcion}" title="#{bundle.ViewEquiposTitle_descripcion}"/>
+                    <h:outputText value="#{bundle.ViewEquiposLabel_marca}"/>
+                    <h:outputText value="#{equiposController.selected.marca}" title="#{bundle.ViewEquiposTitle_marca}"/>
+                    <h:outputText value="#{bundle.ViewEquiposLabel_serie}"/>
+                    <h:outputText value="#{equiposController.selected.serie}" title="#{bundle.ViewEquiposTitle_serie}"/>
+                    <h:outputText value="#{bundle.ViewEquiposLabel_estadoEquipo}"/>
+                    <h:outputText value="#{equiposController.selected.estadoEquipo}" title="#{bundle.ViewEquiposTitle_estadoEquipo}"/>
+                    <h:outputText value="#{bundle.ViewEquiposLabel_idEstacionBase}"/>
+                    <h:outputText value="#{equiposController.selected.idEstacionBase}" title="#{bundle.ViewEquiposTitle_idEstacionBase}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{equiposController.destroyAndView}" value="#{bundle.ViewEquiposDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewEquiposEditLink}"/>
+                <br />
+                <h:commandLink action="#{equiposController.prepareCreate}" value="#{bundle.ViewEquiposCreateLink}" />
+                <br />
+                <h:commandLink action="#{equiposController.prepareList}" value="#{bundle.ViewEquiposShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewEquiposIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

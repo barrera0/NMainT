@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAsignacionesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAsignacionesLabel_idcronograma}"/>
+                    <h:outputText value="#{asignacionesController.selected.idcronograma}" title="#{bundle.ViewAsignacionesTitle_idcronograma}"/>
+                    <h:outputText value="#{bundle.ViewAsignacionesLabel_fechaSolicitudOT}"/>
+                    <h:outputText value="#{asignacionesController.selected.fechaSolicitudOT}" title="#{bundle.ViewAsignacionesTitle_fechaSolicitudOT}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewAsignacionesLabel_estadoSolicitudOT}"/>
+                    <h:outputText value="#{asignacionesController.selected.estadoSolicitudOT}" title="#{bundle.ViewAsignacionesTitle_estadoSolicitudOT}"/>
+                    <h:outputText value="#{bundle.ViewAsignacionesLabel_fechaAsignacion}"/>
+                    <h:outputText value="#{asignacionesController.selected.fechaAsignacion}" title="#{bundle.ViewAsignacionesTitle_fechaAsignacion}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewAsignacionesLabel_estadoAsignacion}"/>
+                    <h:outputText value="#{asignacionesController.selected.estadoAsignacion}" title="#{bundle.ViewAsignacionesTitle_estadoAsignacion}"/>
+                    <h:outputText value="#{bundle.ViewAsignacionesLabel_fechaInicio}"/>
+                    <h:outputText value="#{asignacionesController.selected.fechaInicio}" title="#{bundle.ViewAsignacionesTitle_fechaInicio}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewAsignacionesLabel_fechaFin}"/>
+                    <h:outputText value="#{asignacionesController.selected.fechaFin}" title="#{bundle.ViewAsignacionesTitle_fechaFin}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewAsignacionesLabel_disponibilidad}"/>
+                    <h:outputText value="#{asignacionesController.selected.disponibilidad}" title="#{bundle.ViewAsignacionesTitle_disponibilidad}"/>
+                    <h:outputText value="#{bundle.ViewAsignacionesLabel_ejecutadoPor}"/>
+                    <h:outputText value="#{asignacionesController.selected.ejecutadoPor}" title="#{bundle.ViewAsignacionesTitle_ejecutadoPor}"/>
+                    <h:outputText value="#{bundle.ViewAsignacionesLabel_tecnico}"/>
+                    <h:outputText value="#{asignacionesController.selected.tecnico}" title="#{bundle.ViewAsignacionesTitle_tecnico}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{asignacionesController.destroyAndView}" value="#{bundle.ViewAsignacionesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAsignacionesEditLink}"/>
+                <br />
+                <h:commandLink action="#{asignacionesController.prepareCreate}" value="#{bundle.ViewAsignacionesCreateLink}" />
+                <br />
+                <h:commandLink action="#{asignacionesController.prepareList}" value="#{bundle.ViewAsignacionesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAsignacionesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

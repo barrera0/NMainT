@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateUsuariosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateUsuariosLabel_idUsuario}" for="idUsuario" />
+                    <h:inputText class="form-control" id="idUsuario" value="#{usuariosController.selected.idUsuario}" title="#{bundle.CreateUsuariosTitle_idUsuario}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_idUsuario}"/>
+                    <h:outputLabel value="#{bundle.CreateUsuariosLabel_clave}" for="clave" />
+                    <h:inputText class="form-control" id="clave" value="#{usuariosController.selected.clave}" title="#{bundle.CreateUsuariosTitle_clave}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_clave}"/>
+                    <h:outputLabel value="#{bundle.CreateUsuariosLabel_cedula}" for="cedula" />
+                    <h:inputText class="form-control" id="cedula" value="#{usuariosController.selected.cedula}" title="#{bundle.CreateUsuariosTitle_cedula}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_cedula}"/>
+                    <h:outputLabel value="#{bundle.CreateUsuariosLabel_nombre}" for="nombre" />
+                    <h:inputText class="form-control" id="nombre" value="#{usuariosController.selected.nombre}" title="#{bundle.CreateUsuariosTitle_nombre}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.CreateUsuariosLabel_apellido}" for="apellido" />
+                    <h:inputText class="form-control" id="apellido" value="#{usuariosController.selected.apellido}" title="#{bundle.CreateUsuariosTitle_apellido}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_apellido}"/>
+                    <h:outputLabel value="#{bundle.CreateUsuariosLabel_email}" for="email" />
+                    <h:inputText class="form-control" id="email" value="#{usuariosController.selected.email}" title="#{bundle.CreateUsuariosTitle_email}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_email}"/>
+                    <h:outputLabel value="#{bundle.CreateUsuariosLabel_telefono}" for="telefono" />
+                    <h:inputText class="form-control" id="telefono" value="#{usuariosController.selected.telefono}" title="#{bundle.CreateUsuariosTitle_telefono}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_telefono}"/>
+                    <h:outputLabel value="#{bundle.CreateUsuariosLabel_idRol}" for="idRol" />
+                    <h:selectOneMenu class="form-control" id="idRol" value="#{usuariosController.selected.idRol}" title="#{bundle.CreateUsuariosTitle_idRol}" required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_idRol}">
+                        <f:selectItems value="#{rolesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{usuariosController.create}" value="#{bundle.CreateUsuariosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{usuariosController.prepareList}" value="#{bundle.CreateUsuariosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateUsuariosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

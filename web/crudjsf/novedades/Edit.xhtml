@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditNovedadesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditNovedadesLabel_idNovedad}" for="idNovedad" />
+                    <h:inputText id="idNovedad" value="#{novedadesController.selected.idNovedad}" title="#{bundle.EditNovedadesTitle_idNovedad}" required="true" requiredMessage="#{bundle.EditNovedadesRequiredMessage_idNovedad}"/>
+                    <h:outputLabel value="#{bundle.EditNovedadesLabel_descripcionN}" for="descripcionN" />
+                    <h:inputText id="descripcionN" value="#{novedadesController.selected.descripcionN}" title="#{bundle.EditNovedadesTitle_descripcionN}" required="true" requiredMessage="#{bundle.EditNovedadesRequiredMessage_descripcionN}"/>
+                    <h:outputLabel value="#{bundle.EditNovedadesLabel_fechaN}" for="fechaN" />
+                    <h:inputText id="fechaN" value="#{novedadesController.selected.fechaN}" title="#{bundle.EditNovedadesTitle_fechaN}" required="true" requiredMessage="#{bundle.EditNovedadesRequiredMessage_fechaN}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditNovedadesLabel_fkIdUsuario}" for="fkIdUsuario" />
+                    <h:selectOneMenu id="fkIdUsuario" value="#{novedadesController.selected.fkIdUsuario}" title="#{bundle.EditNovedadesTitle_fkIdUsuario}" required="true" requiredMessage="#{bundle.EditNovedadesRequiredMessage_fkIdUsuario}">
+                        <f:selectItems value="#{usuariosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{novedadesController.update}" value="#{bundle.EditNovedadesSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditNovedadesViewLink}"/>
+                <br />
+                <h:commandLink action="#{novedadesController.prepareList}" value="#{bundle.EditNovedadesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditNovedadesIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

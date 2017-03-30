@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEquiposTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateEquiposLabel_idEquipo}" for="idEquipo" />
+                    <h:inputText class="form-control" id="idEquipo" value="#{equiposController.selected.idEquipo}" title="#{bundle.CreateEquiposTitle_idEquipo}" required="true" requiredMessage="#{bundle.CreateEquiposRequiredMessage_idEquipo}"/>
+                    <h:outputLabel value="#{bundle.CreateEquiposLabel_descripcion}" for="descripcion" />
+                    <h:inputText class="form-control" id="descripcion" value="#{equiposController.selected.descripcion}" title="#{bundle.CreateEquiposTitle_descripcion}" required="true" requiredMessage="#{bundle.CreateEquiposRequiredMessage_descripcion}"/>
+                    <h:outputLabel value="#{bundle.CreateEquiposLabel_marca}" for="marca" />
+                    <h:inputText class="form-control" id="marca" value="#{equiposController.selected.marca}" title="#{bundle.CreateEquiposTitle_marca}" required="true" requiredMessage="#{bundle.CreateEquiposRequiredMessage_marca}"/>
+                    <h:outputLabel value="#{bundle.CreateEquiposLabel_serie}" for="serie" />
+                    <h:inputText class="form-control" id="serie" value="#{equiposController.selected.serie}" title="#{bundle.CreateEquiposTitle_serie}" required="true" requiredMessage="#{bundle.CreateEquiposRequiredMessage_serie}"/>
+                    <h:outputLabel value="#{bundle.CreateEquiposLabel_estadoEquipo}" for="estadoEquipo" />
+                    <h:inputText class="form-control" id="estadoEquipo" value="#{equiposController.selected.estadoEquipo}" title="#{bundle.CreateEquiposTitle_estadoEquipo}" required="true" requiredMessage="#{bundle.CreateEquiposRequiredMessage_estadoEquipo}"/>
+                    <h:outputLabel value="#{bundle.CreateEquiposLabel_idEstacionBase}" for="idEstacionBase" />
+                    <h:selectOneMenu class="form-control" id="idEstacionBase" value="#{equiposController.selected.idEstacionBase}" title="#{bundle.CreateEquiposTitle_idEstacionBase}" required="true" requiredMessage="#{bundle.CreateEquiposRequiredMessage_idEstacionBase}">
+                        <f:selectItems value="#{estacionesbaseController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{equiposController.create}" value="#{bundle.CreateEquiposSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{equiposController.prepareList}" value="#{bundle.CreateEquiposShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateEquiposIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

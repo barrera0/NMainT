@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAsignacionesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAsignacionesEmpty}" rendered="#{asignacionesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{asignacionesController.items.rowCount > 0}">
+                    <h:outputText value="#{asignacionesController.pagination.pageFirstItem + 1}..#{asignacionesController.pagination.pageLastItem + 1}/#{asignacionesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{asignacionesController.previous}" value="#{bundle.Previous} #{asignacionesController.pagination.pageSize}" rendered="#{asignacionesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{asignacionesController.next}" value="#{bundle.Next} #{asignacionesController.pagination.pageSize}" rendered="#{asignacionesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{asignacionesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAsignacionesTitle_idcronograma}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idcronograma}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAsignacionesTitle_fechaSolicitudOT}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaSolicitudOT}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAsignacionesTitle_estadoSolicitudOT}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estadoSolicitudOT}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAsignacionesTitle_fechaAsignacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaAsignacion}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAsignacionesTitle_estadoAsignacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estadoAsignacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAsignacionesTitle_fechaInicio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaInicio}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAsignacionesTitle_fechaFin}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaFin}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAsignacionesTitle_disponibilidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.disponibilidad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAsignacionesTitle_ejecutadoPor}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ejecutadoPor}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAsignacionesTitle_tecnico}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tecnico}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{asignacionesController.prepareView}" value="#{bundle.ListAsignacionesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{asignacionesController.prepareEdit}" value="#{bundle.ListAsignacionesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{asignacionesController.destroy}" value="#{bundle.ListAsignacionesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{asignacionesController.prepareCreate}" value="#{bundle.ListAsignacionesCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListAsignacionesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateOrdenesdetrabajoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateOrdenesdetrabajoLabel_idOT}" for="idOT" />
+                    <h:inputText class="form-control" id="idOT" value="#{ordenesdetrabajoController.selected.idOT}" title="#{bundle.CreateOrdenesdetrabajoTitle_idOT}" required="true" requiredMessage="#{bundle.CreateOrdenesdetrabajoRequiredMessage_idOT}"/>
+                    <h:outputLabel value="#{bundle.CreateOrdenesdetrabajoLabel_estadoOT}" for="estadoOT" />
+                    <h:inputText class="form-control" id="estadoOT" value="#{ordenesdetrabajoController.selected.estadoOT}" title="#{bundle.CreateOrdenesdetrabajoTitle_estadoOT}" required="true" requiredMessage="#{bundle.CreateOrdenesdetrabajoRequiredMessage_estadoOT}"/>
+                    <h:outputLabel value="#{bundle.CreateOrdenesdetrabajoLabel_descripcionOT}" for="descripcionOT" />
+                    <h:inputText class="form-control" id="descripcionOT" value="#{ordenesdetrabajoController.selected.descripcionOT}" title="#{bundle.CreateOrdenesdetrabajoTitle_descripcionOT}" required="true" requiredMessage="#{bundle.CreateOrdenesdetrabajoRequiredMessage_descripcionOT}"/>
+                    <h:outputLabel value="#{bundle.CreateOrdenesdetrabajoLabel_fkIdEstacionBase}" for="fkIdEstacionBase" />
+                    <h:selectOneMenu class="form-control" id="fkIdEstacionBase" value="#{ordenesdetrabajoController.selected.fkIdEstacionBase}" title="#{bundle.CreateOrdenesdetrabajoTitle_fkIdEstacionBase}" required="true" requiredMessage="#{bundle.CreateOrdenesdetrabajoRequiredMessage_fkIdEstacionBase}">
+                        <f:selectItems value="#{estacionesbaseController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateOrdenesdetrabajoLabel_fkIdUsuario}" for="fkIdUsuario" />
+                    <h:selectOneMenu class="form-control" id="fkIdUsuario" value="#{ordenesdetrabajoController.selected.fkIdUsuario}" title="#{bundle.CreateOrdenesdetrabajoTitle_fkIdUsuario}" required="true" requiredMessage="#{bundle.CreateOrdenesdetrabajoRequiredMessage_fkIdUsuario}">
+                        <f:selectItems value="#{usuariosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{ordenesdetrabajoController.create}" value="#{bundle.CreateOrdenesdetrabajoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{ordenesdetrabajoController.prepareList}" value="#{bundle.CreateOrdenesdetrabajoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateOrdenesdetrabajoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

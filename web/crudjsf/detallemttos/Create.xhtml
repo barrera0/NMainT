@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateDetallemttosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateDetallemttosLabel_estadoEquipo}" for="estadoEquipo" />
+                    <h:inputText class="form-control" id="estadoEquipo" value="#{detallemttosController.selected.estadoEquipo}" title="#{bundle.CreateDetallemttosTitle_estadoEquipo}" required="true" requiredMessage="#{bundle.CreateDetallemttosRequiredMessage_estadoEquipo}"/>
+                    <h:outputLabel value="#{bundle.CreateDetallemttosLabel_fechaEstadoEquipo}" for="fechaEstadoEquipo" />
+                    <h:inputText class="form-control" id="fechaEstadoEquipo" value="#{detallemttosController.selected.fechaEstadoEquipo}" title="#{bundle.CreateDetallemttosTitle_fechaEstadoEquipo}" required="true" requiredMessage="#{bundle.CreateDetallemttosRequiredMessage_fechaEstadoEquipo}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateDetallemttosLabel_equipos}" for="equipos" />
+                    <h:selectOneMenu class="form-control" id="equipos" value="#{detallemttosController.selected.equipos}" title="#{bundle.CreateDetallemttosTitle_equipos}" required="true" requiredMessage="#{bundle.CreateDetallemttosRequiredMessage_equipos}">
+                        <f:selectItems value="#{equiposController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateDetallemttosLabel_mantenimientos}" for="mantenimientos" />
+                    <h:selectOneMenu class="form-control" id="mantenimientos" value="#{detallemttosController.selected.mantenimientos}" title="#{bundle.CreateDetallemttosTitle_mantenimientos}" required="true" requiredMessage="#{bundle.CreateDetallemttosRequiredMessage_mantenimientos}">
+                        <f:selectItems value="#{mantenimientosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{detallemttosController.create}" value="#{bundle.CreateDetallemttosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{detallemttosController.prepareList}" value="#{bundle.CreateDetallemttosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateDetallemttosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

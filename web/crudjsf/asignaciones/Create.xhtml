@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAsignacionesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAsignacionesLabel_idcronograma}" for="idcronograma" />
+                    <h:inputText class="form-control" id="idcronograma" value="#{asignacionesController.selected.idcronograma}" title="#{bundle.CreateAsignacionesTitle_idcronograma}" required="true" requiredMessage="#{bundle.CreateAsignacionesRequiredMessage_idcronograma}"/>
+                    <h:outputLabel value="#{bundle.CreateAsignacionesLabel_fechaSolicitudOT}" for="fechaSolicitudOT" />
+                    <h:inputText class="form-control" id="fechaSolicitudOT" value="#{asignacionesController.selected.fechaSolicitudOT}" title="#{bundle.CreateAsignacionesTitle_fechaSolicitudOT}" required="true" requiredMessage="#{bundle.CreateAsignacionesRequiredMessage_fechaSolicitudOT}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateAsignacionesLabel_estadoSolicitudOT}" for="estadoSolicitudOT" />
+                    <h:inputText class="form-control" id="estadoSolicitudOT" value="#{asignacionesController.selected.estadoSolicitudOT}" title="#{bundle.CreateAsignacionesTitle_estadoSolicitudOT}" required="true" requiredMessage="#{bundle.CreateAsignacionesRequiredMessage_estadoSolicitudOT}"/>
+                    <h:outputLabel value="#{bundle.CreateAsignacionesLabel_fechaAsignacion}" for="fechaAsignacion" />
+                    <h:inputText class="form-control" id="fechaAsignacion" value="#{asignacionesController.selected.fechaAsignacion}" title="#{bundle.CreateAsignacionesTitle_fechaAsignacion}" required="true" requiredMessage="#{bundle.CreateAsignacionesRequiredMessage_fechaAsignacion}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateAsignacionesLabel_estadoAsignacion}" for="estadoAsignacion" />
+                    <h:inputText class="form-control" id="estadoAsignacion" value="#{asignacionesController.selected.estadoAsignacion}" title="#{bundle.CreateAsignacionesTitle_estadoAsignacion}" required="true" requiredMessage="#{bundle.CreateAsignacionesRequiredMessage_estadoAsignacion}"/>
+                    <h:outputLabel value="#{bundle.CreateAsignacionesLabel_fechaInicio}" for="fechaInicio" />
+                    <h:inputText class="form-control" id="fechaInicio" value="#{asignacionesController.selected.fechaInicio}" title="#{bundle.CreateAsignacionesTitle_fechaInicio}" required="true" requiredMessage="#{bundle.CreateAsignacionesRequiredMessage_fechaInicio}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateAsignacionesLabel_fechaFin}" for="fechaFin" />
+                    <h:inputText class="form-control" id="fechaFin" value="#{asignacionesController.selected.fechaFin}" title="#{bundle.CreateAsignacionesTitle_fechaFin}" required="true" requiredMessage="#{bundle.CreateAsignacionesRequiredMessage_fechaFin}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateAsignacionesLabel_disponibilidad}" for="disponibilidad" />
+                    <h:inputText class="form-control" id="disponibilidad" value="#{asignacionesController.selected.disponibilidad}" title="#{bundle.CreateAsignacionesTitle_disponibilidad}" required="true" requiredMessage="#{bundle.CreateAsignacionesRequiredMessage_disponibilidad}"/>
+                    <h:outputLabel value="#{bundle.CreateAsignacionesLabel_ejecutadoPor}" for="ejecutadoPor" />
+                    <h:inputText class="form-control" id="ejecutadoPor" value="#{asignacionesController.selected.ejecutadoPor}" title="#{bundle.CreateAsignacionesTitle_ejecutadoPor}" required="true" requiredMessage="#{bundle.CreateAsignacionesRequiredMessage_ejecutadoPor}"/>
+                    <h:outputLabel value="#{bundle.CreateAsignacionesLabel_tecnico}" for="tecnico" />
+                    <h:inputText class="form-control" id="tecnico" value="#{asignacionesController.selected.tecnico}" title="#{bundle.CreateAsignacionesTitle_tecnico}" required="true" requiredMessage="#{bundle.CreateAsignacionesRequiredMessage_tecnico}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{asignacionesController.create}" value="#{bundle.CreateAsignacionesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{asignacionesController.prepareList}" value="#{bundle.CreateAsignacionesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateAsignacionesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
